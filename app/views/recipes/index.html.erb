@@ -1,0 +1,15 @@
+<h3>Searching for - <%= @search_term %></h3>
+<table border="1">
+	<tr>
+		<th>Thumbnail</th>
+		<th>Title</th>
+		<th>social rank of the recipe</th>
+	</tr>
+	<% @recipes.each do |recipe| %>
+		<tr class=<%= cycle('even', 'odd') %> >
+	  		<td>  <a href = <%= recipe['source_url'] %> target="連結目標" title="連結替代文字"><%= image_tag(recipe['image_url'], height: '100', width: '100') %> </a> </td>
+	  		<td><%= link_to  sanitize(recipe['title']), recipe['source_url'] %> </td>
+	  		<td><%= recipe['social_rank'] %> </td>
+	 	</tr>
+	<% end %>
+</table>
